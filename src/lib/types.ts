@@ -54,7 +54,24 @@ export type SparklesCoreProps = {
 };
 
 export type CardContainerProps = {
-  children?: React.ReactNode
-  className?: string
-  containerClassName?: string
-}
+  children?: React.ReactNode;
+  className?: string;
+  containerClassName?: string;
+};
+
+export type CardBodyProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+export type CardItemProps = {
+  as?: React.ElementType;
+  children: React.ReactNode;
+  className?: string;
+  translateX?: number | string;
+  translateY?: number | string;
+  translateZ?: number | string;
+  rotateX?: number | string;
+  rotateY?: number | string;
+  rotateZ?: number | string;
+};

@@ -1,8 +1,6 @@
+import CardBody from "@/components/common/CardBody";
 import CardContainer from "@/components/common/CardContainer";
-import {
-  CardBody,
-  CardItem,
-} from "@/components/common/CardContainer/CardContainer";
+import CardItem from "@/components/common/CardItem";
 import ContainerScrollAnimation from "@/components/common/ContainerScrollAnimation";
 import { HeroParallax } from "@/components/common/HeroParallax/HeroParallax";
 import InfiniteMovingCards from "@/components/common/InfiniteMovingCards";
