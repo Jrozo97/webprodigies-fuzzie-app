@@ -8,7 +8,7 @@ import { loadSlim } from "@tsparticles/slim";
 
 import { motion, useAnimation } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { SparklesCoreProps } from "@/lib/types";
+import { SparklesCoreProps } from "@/lib/types.props";
 
 export const SparklesCore = (props: SparklesCoreProps) => {
   const {

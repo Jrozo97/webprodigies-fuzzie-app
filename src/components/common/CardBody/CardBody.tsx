@@ -1,6 +1,6 @@
 "use client";
 
-import { CardBodyProps } from "@/lib/types";
+import { CardBodyProps } from "@/lib/types.props";
 import { cn } from "@/lib/utils";
 
 export const CardBody = ({

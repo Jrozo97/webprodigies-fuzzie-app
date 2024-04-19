@@ -1,6 +1,6 @@
 import React from "react";
 import { motion  } from "framer-motion";
-import { HeaderProps } from "@/lib/types";
+import { HeaderProps } from "@/lib/types.props";
 
 const Header = ({ translate, titleComponent }: HeaderProps) => {
   return (
