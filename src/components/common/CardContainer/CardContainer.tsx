@@ -1,7 +1,7 @@
 "use client";
 
 import { MouseEnterContext, useMouseEnter } from "@/hooks/useMouseEnter";
-import { CardContainerProps } from "@/lib/types";
+import { CardContainerProps } from "@/lib/types.props";
 import { cn } from "@/lib/utils";
 import React, { useState, useRef } from "react";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMouseEnter } from "@/hooks/useMouseEnter"
-import { CardItemProps } from "@/lib/types"
+import { CardItemProps } from "@/lib/types.props"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef } from "react"
 

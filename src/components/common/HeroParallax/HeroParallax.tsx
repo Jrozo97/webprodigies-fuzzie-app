@@ -8,7 +8,7 @@ import {
 } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { HeroParallaxProps, ProductCardProps } from '@/lib/types'
+import { HeroParallaxProps, ProductCardProps } from '@/lib/types.props'
 
 export const HeroParallax = ({
   products,

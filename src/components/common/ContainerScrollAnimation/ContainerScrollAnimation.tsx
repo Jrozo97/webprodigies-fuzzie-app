@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import Header from '../Header'
 import Card from '../Card'
 import { useScroll, useTransform } from 'framer-motion'
-import { ContainerScrollAnimationProps } from '@/lib/types'
+import { ContainerScrollAnimationProps } from '@/lib/types.props'
 
 
 const ContainerScrollAnimation = ({titleComponent}: ContainerScrollAnimationProps) => {
