@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import { CardProps } from "@/lib/types";
+import { CardProps } from "@/lib/types.props";
 
 type Props = {};
 

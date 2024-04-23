@@ -1,77 +1,21 @@
-import { MotionValue } from "framer-motion";
+import { ConnectionProviderProps } from '@/providers/connections-providers'
+import { z } from 'zod'
 
-export type HeaderProps = {
-  translate: MotionValue<number>;
-  titleComponent: string | React.ReactNode;
-};
+export const EditUserProfileSchema = z.object({
+  email: z.string().email('Required'),
+  name: z.string().min(1, 'Required'),
+})
 
-export type CardProps = {
-  rotate: MotionValue<number>;
-  scale: MotionValue<number>;
-  translate: MotionValue<number>;
-};
+export type ConnectionTypes = 'Google Drive' | 'Notion' | 'Slack' | 'Discord'
 
-export type ContainerScrollAnimationProps = {
-  titleComponent: string | React.ReactNode;
-};
+export type Connection = {
+  title: ConnectionTypes
+  description: string
+  image: string
+  connectionKey: keyof ConnectionProviderProps
+  accessTokenKey?: string
+  alwaysTrue?: boolean
+  slackSpecial?: boolean
+}
 
-export type InfiniteMovingCardsProps = {
-  items: {
-    href: string;
-  }[];
-  direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
-  pauseOnHover?: boolean;
-  className?: string;
-};
 
-export type ProductCardProps = {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
-};
-export type HeroParallaxProps = {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  }[];
-};
-
-export type SparklesCoreProps = {
-  id?: string;
-  className?: string;
-  background?: string;
-  particleSize?: number;
-  minSize?: number;
-  maxSize?: number;
-  speed?: number;
-  particleColor?: string;
-  particleDensity?: number;
-};
-
-export type CardContainerProps = {
-  children?: React.ReactNode;
-  className?: string;
-  containerClassName?: string;
-};
-
-export type CardBodyProps = {
-  children: React.ReactNode;
-  className?: string;
-};
-
-export type CardItemProps = {
-  as?: React.ElementType;
-  children: React.ReactNode;
-  className?: string;
-  translateX?: number | string;
-  translateY?: number | string;
-  translateZ?: number | string;
-  rotateX?: number | string;
-  rotateY?: number | string;
-  rotateZ?: number | string;
-};
