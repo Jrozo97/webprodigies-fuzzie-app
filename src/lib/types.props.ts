@@ -1,4 +1,5 @@
 import { MotionValue } from "framer-motion";
+import { ConnectionTypes } from "./types";
 
 export type HeaderProps = {
   translate: MotionValue<number>;
@@ -74,4 +75,18 @@ export type CardItemProps = {
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
+};
+
+
+export type ConnectionCardProps = {
+  type: ConnectionTypes;
+  icon: string;
+  title: ConnectionTypes;
+  description: string;
+  callback?: () => void;
+  connected?: {} & any;
+};
+
+export type PageConnectionsProps = {
+  searchParams?: { [key: string]: string | undefined };
 };
