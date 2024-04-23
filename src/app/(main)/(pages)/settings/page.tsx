@@ -1,10 +1,60 @@
 import ProfileForm from "@/components/Forms/ProfileForm";
 import React from "react";
+import ProfilePicture from "./_components/ProfilePicture";
+import { db } from "@/lib/db";
+import { currentUser } from "@clerk/nextjs";
 
-type Props = {};
 
-const Settings = (props: Props) => {
-  //WIP: Wire up Profile picture
+const Settings = async () => {
+  const authUser = await currentUser();
+  if (!authUser) return null;
+
+  console.log("authUser", authUser.id);
+  const user = await db.user.findUnique({ where: { clerkId: authUser.id } })
+  console.log("user settings", user)
+
+  const removeProfileImage = async () => {
+    "use server";
+    const response = await db.user.update({
+      where: {
+        clerkId: authUser.id,
+      },
+      data: {
+        profileImage: "",
+      },
+    });
+    return response;
+  };
+
+  const uploadProfileImage = async (image: string) => {
+    "use server";
+    const id = authUser.id;
+    const response = await db.user.update({
+      where: {
+        clerkId: id,
+      },
+      data: {
+        profileImage: image,
+      },
+    });
+
+    return response;
+  };
+
+  const updateUserInfo = async (name: string) => {
+    "use server";
+
+    const updateUser = await db.user.update({
+      where: {
+        clerkId: authUser.id,
+      },
+      data: {
+        name,
+      },
+    });
+    return updateUser;
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <h1 className="sticky top-0 z-10 flex items-center justify-between border-b bg-background/50 p-6 text-4xl backdrop-blur-lg">
@@ -17,8 +67,12 @@ const Settings = (props: Props) => {
             Add or update your information
           </p>
         </div>
-
-        <ProfileForm />
+        <ProfilePicture
+          userImage={user?.profileImage || ""}
+          onDelete={removeProfileImage}
+          onUpload={uploadProfileImage}
+        />
+        <ProfileForm user={user} onUpdate={updateUserInfo} />
       </div>
     </div>
   );

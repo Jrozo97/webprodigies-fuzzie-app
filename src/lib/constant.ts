@@ -5,6 +5,7 @@ import Payment from "@/components/icons/Payment"
 import Settings from "@/components/icons/Settings"
 import Templates from "@/components/icons/Templates"
 import Workflows from "@/components/icons/Workflows"
+import { Connection } from "./types"
 
 
 export const clients = [...new Array(10)].map((client, index) => ({
@@ -100,4 +101,38 @@ export const menuOptions = [
   { name: 'Billing', Component: Payment, href: '/billing' },
   { name: 'Templates', Component: Templates, href: '/templates' },
   { name: 'Logs', Component: ClipBoard, href: '/logs' },
+]
+
+
+export const CONNECTIONS: Connection[] = [
+  {
+    title: 'Google Drive',
+    description: 'Connect your google drive to listen to folder changes',
+    image: '/images/googleDrive.png',
+    connectionKey: 'googleNode',
+    alwaysTrue: true,
+  },
+  {
+    title: 'Discord',
+    description: 'Connect your discord to send notification and messages',
+    image: '/images/discord.png',
+    connectionKey: 'discordNode',
+    accessTokenKey: 'webhookURL',
+  },
+  {
+    title: 'Notion',
+    description: 'Create entries in your notion dashboard and automate tasks.',
+    image: '/images/notion.png',
+    connectionKey: 'notionNode',
+    accessTokenKey: 'accessToken',
+  },
+  {
+    title: 'Slack',
+    description:
+      'Use slack to send notifications to team members through your own custom bot.',
+    image: '/images/slack.png',
+    connectionKey: 'slackNode',
+    accessTokenKey: 'slackAccessToken',
+    slackSpecial: true,
+  },
 ]
